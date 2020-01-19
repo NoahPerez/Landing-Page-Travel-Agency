@@ -1,0 +1,14 @@
+{
+  "name": "advanced-css",
+  "version": "1.0.0",
+  "description": "Landing page for Tours",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass sass/main.scss css/style.css -w"
+  },
+  "author": "Noah Perez",
+  "license": "ISC",
+  "devDependencies": {
+    "node-sass": "^4.13.1"
+  }
+}
