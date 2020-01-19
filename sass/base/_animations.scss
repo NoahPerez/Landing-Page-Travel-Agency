@@ -1,0 +1,50 @@
+@keyframes moveInLeft {
+
+    0%{
+    opacity: 0;
+    transform: translateX(-10rem); /* rotate(0deg); negative goes to the left and positive goes to the right */  /* divide by 10px */
+    }
+
+    /* 60%{
+        transform: rotate(180deg);
+    } */
+
+   80% {
+      transform: translateX(1rem);/* divide by 10px */
+   }
+
+    100%{
+    opacity: 1;
+    transform: translate(0); /* If we translate zero it going to look the same as it look (initial state) */
+    }
+}
+
+@keyframes moveInRight {
+
+    0%{
+    opacity: 0;
+    transform: translateX(10rem); /*negative goes to the left and positive goes to the right */ /* divide by 10px */
+    }
+
+   80% {
+      transform: translateX(-1rem); /* divide by 10px */
+   }
+
+    100%{
+    opacity: 1;
+    transform: translate(0); /* If we translate zero it going to look the same as it look (initial state) */
+    }
+}
+
+@keyframes moveInBottom {
+
+    0%{
+    opacity: 0;
+    transform: translateY(3rem); /*Top to button because is Y positive to move down  */ /* divide by 10px */
+    }
+
+    100%{
+    opacity: 1;
+    transform: translate(0); /* If we translate zero it going to look the same as it look (initial state) */
+    }
+}

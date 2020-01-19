@@ -1,0 +1,20 @@
+//base is are basic definition of our project
+
+/* this is to not have any padding or margin in any Browsers */
+*,
+*::after,
+*::before {
+    margin:0;
+    padding:0;
+    box-sizing: inherit;
+}
+
+html{
+    // this defines what is 1rem is 
+    font-size: 62.5%; /* the over all font size to a percentage. The default root is 16px but we don't want that we want. We want 10px so we divided 10 / 16px = 625px multiple by 100 62.5% */ 
+}
+
+/* front will be in the inheritance body  */
+body {
+    box-sizing: border-box;
+}

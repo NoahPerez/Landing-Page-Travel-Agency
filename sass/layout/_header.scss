@@ -1,0 +1,31 @@
+.header{
+    height: 95vh; /* this should be 95% of the viewpoint height, it will fill 95% of the screen */ 
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.8), 
+        rgba($color-primary-dark, 0.8)),
+        url(../img/hero.jpg); /* 0.8 is 80% */
+    background-size: cover;
+    background-position: top;
+    position: relative;
+
+     clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%); /* clockwise  x y  */
+
+     &__logo-box{ //nesting
+        position:absolute;
+        top:4rem; /* divide by 10px */
+        left: 4rem; /* divide by 10px  = 4rem*/
+     }
+
+     &__logo {
+        height: 3.5rem; /* divide by 10px */
+     }
+
+     &__text-box {
+        position: absolute;
+        top:40%;
+        left: 50%; /* these are no longer relation to the parent element  */
+        transform: translate(-50%,-50%);  /* x and on Y (epsilon) how much do we want to translate */
+        text-align: center;
+    }
+}
