@@ -35,6 +35,14 @@
             background-color:$color-white; 
         }
     }
+
+    &--green {
+        background-color:$color-primary;
+        color: $color-white; 
+        &::after{
+            background-color:$color-primary; 
+        }
+    }
     
     &::after{ /* this is the after effect pseudo element but we put the effect after behind the button */
         content:""; /* need to be in the after btn */
