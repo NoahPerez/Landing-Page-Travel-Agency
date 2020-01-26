@@ -1,0 +1,66 @@
+.story{
+    width: 75%;
+    margin: 0 auto; // It`s a block element inside a block element
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding:6rem;
+    padding-left:9rem;
+    font-size:$default-font-size;
+    transform: skewX(-12deg); // change the box shape
+
+    // &> *{   there is no two transform properties applying at the same time. Can't apply to transform properties at the same time 
+        
+    // }
+
+
+
+    &__shape{
+        width:15rem;//
+        height: 15rem;//
+        float:left; //
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%); // define where the content float around the element // in order to work it must be float:Left (like in line14) it need to have a width and height
+        -webkit-clip-path: circle(50% at 50% 50%); // shape the image as a circle 
+        clip-path: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg); // to have a space between image and text better to use transform because it is float element.
+        position:relative;
+    }
+
+    &__img{
+         height: 100%; // images need to be in % and a width or height 
+         transform: translateX(-4rem)  scale(1.4); // to move the image to the left // initial scale
+         backface-visibility: hidden; // to fix any strange behavior with "transform"
+         transition: all .5s;
+    }
+
+    &__text{
+        transform: skewX(12deg);
+    }
+            
+
+       //initial state before the hover occur 
+    &__caption{  // center the text in the image
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%, 20%); // moving the image down
+        color: $color-white;
+        text-transform:uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        transition: all .5s; //animation 
+        backface-visibility: hidden; // to fix the little shake
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        transform: translate(-50%, -50%); // to move up 
+    }
+
+    &:hover &__img{
+        transform: translateX(-4rem)  scale(1); // second state when we hover it 
+        filter: blur(3px) brightness(80%);
+    }
+}
