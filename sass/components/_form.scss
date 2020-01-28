@@ -1,28 +1,74 @@
 .form {
-      &__group:not(:last-child){
+      &__group:not(:last-child) { //not select everything except the last element 
           margin-bottom: 2rem;
-      
     }
 
-    &__input{
+    &__input {
        font-size:1.5rem;
        font-family: inherit; // this wil make to inherit the font family because form has it own font family.
+       color:inherit;
        padding: 1.5rem 2rem;
        border-radius: 2px;
        background-color: rgba($color-white, .5);
        border:none;
        border-bottom: 3px solid transparent;
-       backface-visibility: hidden;
-    }
-
-    &__input:focus{
+       width: 90%;
+       box-shadow: 0 1rem 2rem rgba($color-black, .1);
+       
+       display: block;
+       transition: all .3s;
+       
+       &:focus{
         outline:none;  // take away the focus blue focus default 
-        box-shadow: 0 1rem 2rem rgba($color-black, .1);
-        border-bottom: 3px solid $color-primary;
         
+        border-bottom: 3px solid $color-primary; 
+       }
+
+       &:focus:invalid {
+       border-bottom: 3px solid $color-secondary-dark;
+       }
+
+       &::-webkit-input-placeholder {   // brand new pseudo element // only works in SAfari and Chrome 
+        color:$color-grey-dark-2;
+       } 
+
     }
 
     &__label{
+         font-size: 1.2rem;
+         font-weight: 700;
+         margin-left: 2rem;//
+         margin-top: .7rem;//
+         display: block;  // if not we will not be able to use this block elements 
+         transition: all .3s;
+    }
 
+    &__input:placeholder-shown + &__label {   // + direct sibling ( child and child ) General sibling combinator ~ even between other elements
+         opacity: 0;
+         visibility: hidden;
+         transform: translateY(-4rem);
+    } 
+
+    &__radio-group {
+        width: 40%;
+        display: inline-block;
+    }
+     
+
+    &__radio-label {
+        font-size: $default-font-size;
+        cursor: pointer;
+    }
+
+    &__radio-button{
+        height: 3rem;
+        width:3rem;
+        border: 5px solid $color-primary;
+        border-radius: 50%;
+
+        
+        &::after{
+
+        }
     }
 }
