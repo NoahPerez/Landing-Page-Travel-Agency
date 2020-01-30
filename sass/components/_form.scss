@@ -53,22 +53,46 @@
         width: 40%;
         display: inline-block;
     }
+
+    &__radio-input{
+        display:none;
+    }
      
 
     &__radio-label {
         font-size: $default-font-size;
         cursor: pointer;
+        position: relative;
+        padding-left: 4.5rem;
     }
 
     &__radio-button{
-        height: 3rem;
-        width:3rem;
+        height: 3rem; //
+        width:3rem; //
         border: 5px solid $color-primary;
-        border-radius: 50%;
-
-        
+        border-radius: 50%; //
+        display: inline-block; // We use inline-block to define these
+        position: absolute; // in order these to work we need to make it relative the parent 
+        left: 0;
+        top: -.4rem;
+         
         &::after{
-
+            content: ""; // every time we use a pseudo we have specify the content // display 
+            display:block;
+            height: 1.3rem;
+            width: 1.3rem;
+            border-radius: 50%;
+            position: absolute; // in the parent you can also be position absolute it just needs to be specified 
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: $color-primary;
+            opacity: 0;
+            transition: opacity .2s;
         }
+    }
+
+    &__radio-input:checked ~ &__radio-label &__radio-button::after { // we can use ~ or + // to able to give an opacity to the check radio buttons need to select several siblings
+        opacity: 1;
     }
 }
