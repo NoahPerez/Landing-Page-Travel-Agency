@@ -1,3 +1,17 @@
+/*
+0 - 600px:      phone
+600 - 900px:    Tablet portrait
+900 - 1200px:   Tablet landscape
+[1200 - 1800]   Is where our normal style apply
+1800px + :      Big desktop
+*/
+/*
+$breakpoint argument choices:
+ - phone
+ - tab-portrait 
+ - tab-landscape
+ - big-desktop
+*/
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -51,10 +65,24 @@
 html {
   font-size: 62.5%;
   /* the over all font size to a percentage. The default root is 16px but we don't want that we want. We want 10px so we divided 10 / 16px = 625px multiple by 100 62.5% */ }
+  @media (max-width: 75em) {
+    html {
+      font-size: 56.25%; } }
+  @media (max-width: 56.25em) {
+    html {
+      font-size: 50%; } }
+  @media (min-width: 112.5em) {
+    html {
+      font-size: 75%; } }
 
-/* front will be in the inheritance body  */
+/* font will be in the inheritance body  */
 body {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  padding: 3rem;
+  /* divide: 10px / 30px = 3rem */ }
+  @media (max-width: 56.25em) {
+    body {
+      padding: 0; } }
 
 body {
   font-family: "Lato", sans-serif;
@@ -62,9 +90,7 @@ body {
   /* font-size: 16px; */
   line-height: 1.7;
   /* it`s  1.7 times bigger than predefined line height: */
-  color: #777;
-  padding: 3rem;
-  /* divide: 10px / 30px = 3rem */ }
+  color: #777; }
 
 .heading-primary {
   color: #fff;
@@ -470,7 +496,10 @@ body {
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     display: table;
-    overflow: hidden; }
+    overflow: hidden;
+    opacity: 0;
+    transform: translate -50%, -50% scale(0.25);
+    transition: all .5s .2s; }
   .popup__left {
     width: 35.333333%;
     display: table-cell; }
@@ -498,6 +527,9 @@ body {
   .popup:target {
     opacity: 1;
     visibility: visible; }
+  .popup:target .popup__content {
+    opacity: 1;
+    transform: translate -50%, -50% scale(1); }
   .popup__close:link, .popup__close:visited {
     color: #777;
     position: absolute;
