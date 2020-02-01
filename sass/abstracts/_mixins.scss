@@ -40,7 +40,7 @@ $breakpoint argument choices:
 
 // 1em = 16px // example 600px / 16px (browser) = 37.5em 
 
-@mixin respond($breakpoint) {
+@mixin respond($breakpoint) { 
 
      @if  $breakpoint == phone {   
         @media (max-width:37.5em) { @content }; //600px // The best way to write media queries is with em 

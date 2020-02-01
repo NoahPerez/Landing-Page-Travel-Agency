@@ -36,7 +36,7 @@ body {
     padding:3rem; /* divide: 10px / 30px = 3rem */
     
     @include respond (tab-port) { // width < 900 ?
-        padding:0;   // to 
+        padding:0;   // to make disappear the padding around the website 
     }
 }
 
