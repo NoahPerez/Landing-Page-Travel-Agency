@@ -365,7 +365,12 @@
 
     <footer class="footer">
         <div class="footer__logo-box">
-            <img src="img/logo-green-2x.png" alt="logo" class="footer__logo">
+            <picture class="footer__logo">
+                <source srcset="img/logo-green-small-1x.png 1x, img/logo-green-small-2x.png 2x"
+                    media="(max-width: 37.5rem)">
+                <img srcset="img/logo-green-1x.png 1x, img/logo-green-2x.png 2x" alt="logo" class="Full logo">
+            </picture> <!--  srcset to espesifide two img and 1x and 2x the Density Switching and Art Direction -->
+
         </div>
         <div class="row">
             <div class="col-1-of-2">
