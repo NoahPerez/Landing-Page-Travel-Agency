@@ -1,16 +1,32 @@
 .header{
-    height: 95vh; /* this should be 95% of the viewpoint height, it will fill 95% of the screen */ 
+    height: 85vh; /* this should be 95% of the viewpoint height, it will fill 95% of the screen */ 
     background-image: linear-gradient(
         to right bottom,
         rgba($color-primary-light, 0.8), 
         rgba($color-primary-dark, 0.8)),
-        url(../img/hero.jpg); /* 0.8 is 80% */
+        url(../img/hero-small.jpg); /* 0.8 is 80% */
     background-size: cover;
     background-position: top;
     position: relative;
 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* clockwise  x y  */
+
+     @supports(clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)){
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /* clockwise  x y  */
+        height: 90vh;
+     }
+
+     @media only screen and (min-resolution: 192dpi) and (min-width:37.5em),
+     only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width:37.5em),
+     only screen and (min-width: 125em) {  // High Density Screen 192dpi
+        background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.8), 
+            rgba($color-primary-dark, 0.8)),
+            url(../img/hero.jpg);
+     }
+
+     
 
      @include respond(phone) {
         -webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
